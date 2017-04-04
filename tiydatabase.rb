@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'pg'
-
 require 'sinatra/reloader' if development?
 
 get '/' do
@@ -21,8 +20,11 @@ get '/employee' do
   accounts = database.exec("select * from employees where id = $1", [id])
 
   @account = accounts.first
-
-  erb :employee
+  if @account
+    erb :employee
+  else
+    erb :no_employee_in_database
+  end
 end
 
 get '/add_person' do
