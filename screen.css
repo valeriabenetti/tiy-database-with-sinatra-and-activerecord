@@ -1,0 +1,24 @@
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font: 16px / 1 sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #eaeaea;
+  align-items: center;
+  line-height: 1.4em;
+}
+
+tr {
+  table-layout: inherit;
+}
+
+td {
+  text-align: center;
+}

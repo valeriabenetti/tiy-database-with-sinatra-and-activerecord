@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset = "UTF-8">
+  <meta name= "viewport" content="width=device-width, user-scalable=no, minimum-scale"
+  <title>Employee Report</title>
+  <link rel="stylesheet" href="./screen.css" type="text/css"
+</head>
+<body>
+  <header>
+    <h1>Emplyee Report</h1>
+  </header>
+  <main>
+    <table style="width:100%">
+      <% @accounts.each do |account| %>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+        </tr>
+        <tr>
+          <td rowspan="5"><%= account.name%></td>
+          <td><%= account.address %></td>
+          <td><%= account.phone %></td>
+        </tr>
+        <tr>
+          <th>Position</th>
+          <th>Salary </th>
+        </tr>
+        <tr>
+          <td><%= account.position %></td>
+          <td>$  <%= account.salary %></td>
+        </tr>
+        <tr>
+          <th>Slack Account</th>
+          <th>GitHub Account</th>
+        </tr>
+        <tr>
+          <td><%= account.slack %></td>
+          <td><%= account.github %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p>End of Report</p>
+  </main>
+</body>
+</html>
