@@ -65,14 +65,14 @@
             <tbody>
               <% @accounts.find do |account| %>
                 <tr>
-                  <td><%= account["id"] %></td>
-                  <td><a href= "/employee?name=<%= account['name'] %>"><%= account["name"] %></a></td>
-                  <td><%= account["phone"] %></td>
-                  <td><%= account["address"] %></td>
-                  <td><%= account["position"] %></td>
-                  <td><%= account["salary"] %></td>
-                  <td><%= account["github"] %></td>
-                  <td><%= account["slack"] %></td>
+                  <td><%= account.id %></td>
+                  <td><a href= "/employee?id=<%= account.id %>"><%= account.name %></a></td>
+                  <td><%= account.phone %></td>
+                  <td><%= account.address %></td>
+                  <td><%= account.position %></td>
+                  <td><%= account.salary %></td>
+                  <td><%= account.github %></td>
+                  <td><%= account.slack %></td>
                 </tr>
               <% end %>
             </tbody>

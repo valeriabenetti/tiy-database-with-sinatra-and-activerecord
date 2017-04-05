@@ -66,13 +66,13 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @account["name"] %></td>
-              <td><%= @account["address"] %></td>
-              <td><%= @account["phone"] %></td>
-              <td><%= @account["position"] %></td>
-              <td><%= @account["salary"] %></td>
-              <td><%= @account["github"] %></td>
-              <td><%= @account["slack"] %></td>
+              <td><%= @account.name %></td>
+              <td><%= @account.address %></td>
+              <td><%= @account.phone %></td>
+              <td><%= @account.position %></td>
+              <td><%= @account.salary %></td>
+              <td><%= @account.github %></td>
+              <td><%= @account.slack %></td>
             </tr>
           </tbody>
         </table>
@@ -84,8 +84,8 @@
           Options <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="/edit_person?id=<%= @account["id"] %>">Edit</a></li>
-          <li><a href="/delete_person?id=<%= @account["id"] %>">Delete</a></li>
+          <li><a href="/edit_person?id=<%= @account.id %>">Edit</a></li>
+          <li><a href="/delete_person?id=<%= @account.id %>">Delete</a></li>
         </ul>
       </div>
     </div>
