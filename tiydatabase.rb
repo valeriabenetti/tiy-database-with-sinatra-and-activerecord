@@ -11,6 +11,7 @@ ActiveRecord::Base.establish_connection(
 class Employee < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 3 }
   validates :position, inclusion: { in: %w{Instructor Student}, message: "%{value} must be Instructor or Student" }
+  validates :salary, inclusion: { in: 10_000..1_000_000, message: "Must be between 10000..1000000" }
   self.primary_key = "id"
 end
 
