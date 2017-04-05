@@ -9,7 +9,7 @@ ActiveRecord::Base.establish_connection(
   database: "tiy-database"
 )
 class Employee < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
   validates :position, inclusion: { in: %w{Instructor Student}, message: "%{value} must be Instructor or Student" }
   self.primary_key = "id"
 end
