@@ -9,6 +9,8 @@ ActiveRecord::Base.establish_connection(
   database: "tiy-database"
 )
 class Employee < ActiveRecord::Base
+  validates :name, presence: true
+  validates :position, inclusion: { in: %w{Instructor Student}, message: "%{value} must be Instructor or Student" }
   self.primary_key = "id"
 end
 
@@ -32,13 +34,17 @@ get '/employee' do
 end
 
 get '/add_person' do
+  @account = Employee.new
   erb :add_person
 end
 
 get '/create_employee' do
-  Employee.create(params)
-
-  redirect to("/")
+  @account = Employee.create(params)
+  if @account.valid?
+    redirect to("/")
+  else
+    erb :add_person
+  end
 end
 
 get '/search_person' do
@@ -63,8 +69,11 @@ get '/update' do
   @account = Employee.find(params["id"])
 
   @account.update_attributes(params)
-
-  erb :employee
+  if @account. valid?
+    redirect to ("/employee?id=#{@account.id}")
+  else
+    erb :edit_person
+  end
 end
 
 get '/delete_person' do
